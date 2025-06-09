@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
 @DisplayName("Testing registration form with positive and negative scenarios")
+@Tag("Registration")
 public class RegistrationTest extends BaseTest{
 
 
@@ -50,10 +51,131 @@ public class RegistrationTest extends BaseTest{
         registrationPage.saveButton();
     }
 
+    @Test
+    @Tag("Positive")
+    @DisplayName("Registration with short but valid name and surname")
+    void signUpShortNameSurname(){
+
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+
+        registrationPage.socialTitle();
+
+        registrationPage.firstName("A");
+
+        registrationPage.lastName("B");
+
+        registrationPage.email("T" + System.currentTimeMillis() + "@test.com");
+
+        registrationPage.password("Testas123!");
+
+        registrationPage.birthDate("04/19/1996");
+
+        registrationPage.checkBox();
+
+        registrationPage.saveButton();
+    }
+    @Test
+    @Tag("Positive")
+    @DisplayName("Registration with long but valid name and surname")
+    void signUpLongNameSurname(){
+
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+
+        registrationPage.socialTitle();
+
+        registrationPage.firstName("TestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTesta"); // 101 letters
+
+        registrationPage.lastName("TestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTesta"); // 101 letters
+
+        registrationPage.email("Long" + System.currentTimeMillis() + "@test.com");
+
+        registrationPage.password("Testas123!");
+
+        registrationPage.birthDate("04/19/1996");
+
+        registrationPage.checkBox();
+
+        registrationPage.saveButton();
+    }
+
+    @Test
+    @Tag("Positive")
+    @DisplayName("Registration with numbers-only password")
+    void signUpOnlyNumbersPassword(){
+
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+
+        registrationPage.socialTitle();
+
+        registrationPage.firstName("Testas");
+
+        registrationPage.lastName("Testas");
+        registrationPage.email("Numbers" + System.currentTimeMillis() + "@testas.com");
+
+        registrationPage.password("123456789123");
+
+        registrationPage.birthDate("04/19/1996");
+
+        registrationPage.checkBox();
+
+        registrationPage.saveButton();
+
+    }
+    @Test
+    @Tag("Positive")
+    @DisplayName("Registration with lowercase letters only password")
+    void signUpOnlySmallLettersPassword(){
+
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+
+        registrationPage.socialTitle();
+
+        registrationPage.firstName("Testas");
+
+        registrationPage.lastName("Testas");
+
+        registrationPage.email("Lower" + System.currentTimeMillis() + "@testas.com");
+
+        registrationPage.password("testastestastestas");
+
+        registrationPage.birthDate("04/19/1996");
+
+        registrationPage.checkBox();
+
+        registrationPage.saveButton();
+
+    }
+    @Test
+    @Tag("Positive")
+    @DisplayName("Registration with uppercase letters only password")
+    void signUpOnlyBigLettersPassword(){
+
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+
+        registrationPage.socialTitle();
+
+        registrationPage.firstName("Testas");
+
+        registrationPage.lastName("Testas");
+
+        registrationPage.email("Upper" + System.currentTimeMillis() + "@testas.com");
+
+        registrationPage.password("TESTASTESTASTESTAS");
+
+        registrationPage.birthDate("04/19/1996");
+
+        registrationPage.checkBox();
+
+        registrationPage.saveButton();
+
+        // Patikrinti sėkmingą registraciją
+    }
+
     // NEGATIVE
 
     @Test
     @Tag("Negative")
+    @DisplayName("Registration fails with empty required fields")
     void SignUpEmptyFields() {
 
         // Error message visible
@@ -61,6 +183,7 @@ public class RegistrationTest extends BaseTest{
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
         registrationPage.saveButton();
+        
     }
 
     @Test
@@ -86,52 +209,8 @@ public class RegistrationTest extends BaseTest{
 
         registrationPage.saveButton();
     }
-    @Test
-    void SignUpShortNameSurname(){
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
-
-        // PASSED
-        registrationPage.firstName("d");
-
-        // PASSED
-        registrationPage.lastName("d");
-
-        registrationPage.email("T@test.com");
-
-        registrationPage.password("Testas123!");
-
-        registrationPage.birthDate("04/19/1996");
-
-        registrationPage.checkBox();
-
-        registrationPage.saveButton();
-    }
-    @Test
-    void SignUpLongNameSurname(){
-
-        RegistrationPage registrationPage = new RegistrationPage(driver);
-
-        registrationPage.socialTitle();
-
-        // PASSED
-        registrationPage.firstName("TestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTesta");
-
-        // PASSED
-        registrationPage.lastName("TestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTesta");
-
-        registrationPage.email("Tes@test.com");
-
-        registrationPage.password("Testas123!");
-
-        registrationPage.birthDate("04/19/1996");
-
-        registrationPage.checkBox();
-
-        registrationPage.saveButton();
-    }
 
     @Test
     void SignUpLongPassword(){
@@ -178,74 +257,8 @@ public class RegistrationTest extends BaseTest{
 
         registrationPage.saveButton();
     }
-    @Test
-    void SignUpOnlyNumbersPassword(){
-
-        RegistrationPage registrationPage = new RegistrationPage(driver);
-
-        registrationPage.socialTitle();
-
-        registrationPage.firstName("Testas");
-
-        registrationPage.lastName("Testas");
-
-        registrationPage.email("TestasT@testas.com");
-
-        // PASSED
-        registrationPage.password("123456789123");
-
-        registrationPage.birthDate("04/19/1996");
-
-        registrationPage.checkBox();
-
-        registrationPage.saveButton();
-    }
-    @Test
-    void SignUpOnlySmallLettersPassword(){
-
-        RegistrationPage registrationPage = new RegistrationPage(driver);
-
-        registrationPage.socialTitle();
-
-        registrationPage.firstName("Testas");
-
-        registrationPage.lastName("Testas");
-
-        registrationPage.email("TestasTe@testas.com");
-
-        // PASSED
-        registrationPage.password("testastestastestastestastestas");
-
-        registrationPage.birthDate("04/19/1996");
-
-        registrationPage.checkBox();
-
-        registrationPage.saveButton();
-    }
-
-    @Test
-    void SignUpOnlyBigLettersPassword(){
 
 
-        RegistrationPage registrationPage = new RegistrationPage(driver);
-
-        registrationPage.socialTitle();
-
-        registrationPage.firstName("Testas");
-
-        registrationPage.lastName("Testas");
-
-        registrationPage.email("TestasTe@testas.com");
-
-        // PASSED
-        registrationPage.password("TESTASTESTASTESTASTESTAS");
-
-        registrationPage.birthDate("04/19/1996");
-
-        registrationPage.checkBox();
-
-        registrationPage.saveButton();
-    }
     @Test
     void SignUpWrongBirthDate(){
 
