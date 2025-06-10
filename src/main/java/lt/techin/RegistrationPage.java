@@ -66,4 +66,13 @@ public class RegistrationPage extends BasePage{
         saveButton.click();
     }
 
+    boolean hasErrorMessage() {
+        try {
+            String validationMessage = firstName.getAttribute("validationMessage");
+            return validationMessage != null && !validationMessage.isEmpty();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
