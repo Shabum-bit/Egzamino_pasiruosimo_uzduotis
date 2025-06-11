@@ -9,17 +9,34 @@ public class ArtCategoryPage extends BasePage{
         super(driver);
     }
 
-    @FindBy(xpath = "//a[normalize-space()='Art']")
-    private WebElement navigateToArtCategory;
-
-    void navigateToArtCategory(){
-        navigateToArtCategory.click();
-    }
-
     @FindBy(xpath = "//button[@aria-label='Sort by selection']")
     private WebElement sortBy;
 
+    @FindBy(xpath = "//a[normalize-space()='Name, A to Z']")
+    private WebElement nameAToZ;
+
+    @FindBy(xpath = "//a[normalize-space()='Name, Z to A']")
+    private  WebElement nameZToA;
+
+    @FindBy(xpath = "//a[normalize-space()='Price, low to high']")
+    private WebElement priceLowToHigh;
+
+    @FindBy(xpath = "//a[normalize-space()='Price, high to low']")
+    private WebElement priceHighToLow;
+
     void sortBy(){
         sortBy.click();
+    }
+    void nameAToZ(){
+        nameAToZ.click();
+    }
+    void  nameZToA(){
+        nameZToA.click();
+    }
+    void priceLowToHigh(){
+        priceLowToHigh.click();
+    }
+    void priceHighToLow(){
+        priceHighToLow.click();
     }
 }

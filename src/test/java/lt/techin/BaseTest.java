@@ -17,10 +17,10 @@ public class BaseTest {
 
     @BeforeEach
     public void setUp(){
-        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://teststore.automationtesting.co.uk/index.php");
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     }
  //   @AfterEach

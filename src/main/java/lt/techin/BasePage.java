@@ -42,4 +42,10 @@ public class BasePage {
         searchBox.sendKeys(Keys.ENTER);
 
     }
+    @FindBy(xpath = "//a[normalize-space()='Art']")
+    private WebElement navigateToArtCategory;
+
+    void navigateToArtCategory(){
+        navigateToArtCategory.click();
+    }
 }

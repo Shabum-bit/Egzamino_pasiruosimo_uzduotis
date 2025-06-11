@@ -36,21 +36,21 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
-        registrationPage.firstName("Testas");
+        registrationPage.firstNameInput("Testas");
 
-        registrationPage.lastName("Test");
+        registrationPage.lastNameInput("Test");
 
-        registrationPage.email("Testas" + System.currentTimeMillis() + "@test.com");
+        registrationPage.emailInput("Testas" + System.currentTimeMillis() + "@test.com");
 
-        registrationPage.password("Testas123789!");
+        registrationPage.passwordInput("Testas123789!");
 
-        registrationPage.birthDate("04/19/1996");
+        registrationPage.birthDateInput("04/19/1996");
 
-        registrationPage.checkBox();
+        registrationPage.clickCheckBox();
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
     }
 
     @Test
@@ -60,21 +60,21 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
-        registrationPage.firstName("A");
+        registrationPage.firstNameInput("A");
 
-        registrationPage.lastName("B");
+        registrationPage.lastNameInput("B");
 
-        registrationPage.email("T" + System.currentTimeMillis() + "@test.com");
+        registrationPage.emailInput("T" + System.currentTimeMillis() + "@test.com");
 
-        registrationPage.password("Testas123!");
+        registrationPage.passwordInput("Testas123!");
 
-        registrationPage.birthDate("04/19/1996");
+        registrationPage.birthDateInput("04/19/1996");
 
-        registrationPage.checkBox();
+        registrationPage.clickCheckBox();
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
     }
     @Test
     @Tag("Positive")
@@ -83,21 +83,21 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
-        registrationPage.firstName("TestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTesta"); // 101 letters
+        registrationPage.firstNameInput("TestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTesta"); // 101 letters
 
-        registrationPage.lastName("TestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTesta"); // 101 letters
+        registrationPage.lastNameInput("TestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTesta"); // 101 letters
 
-        registrationPage.email("Long" + System.currentTimeMillis() + "@test.com");
+        registrationPage.emailInput("Long" + System.currentTimeMillis() + "@test.com");
 
-        registrationPage.password("Testas123!");
+        registrationPage.passwordInput("Testas123!");
 
-        registrationPage.birthDate("04/19/1996");
+        registrationPage.birthDateInput("04/19/1996");
 
-        registrationPage.checkBox();
+        registrationPage.clickCheckBox();
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
     }
 
     @Test
@@ -107,20 +107,21 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
-        registrationPage.firstName("Testas");
+        registrationPage.firstNameInput("Testas");
 
-        registrationPage.lastName("Testas");
-        registrationPage.email("Numbers" + System.currentTimeMillis() + "@testas.com");
+        registrationPage.lastNameInput("Testas");
 
-        registrationPage.password("123456789123");
+        registrationPage.emailInput("Numbers" + System.currentTimeMillis() + "@testas.com");
 
-        registrationPage.birthDate("04/19/1996");
+        registrationPage.passwordInput("123456789123");
 
-        registrationPage.checkBox();
+        registrationPage.birthDateInput("04/19/1996");
 
-        registrationPage.saveButton();
+        registrationPage.clickCheckBox();
+
+        registrationPage.clickSaveButton();
 
     }
     @Test
@@ -130,21 +131,21 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
-        registrationPage.firstName("Testas");
+        registrationPage.firstNameInput("Testas");
 
-        registrationPage.lastName("Testas");
+        registrationPage.lastNameInput("Testas");
 
-        registrationPage.email("Lower" + System.currentTimeMillis() + "@testas.com");
+        registrationPage.emailInput("Lower" + System.currentTimeMillis() + "@testas.com");
 
-        registrationPage.password("testastestastestas");
+        registrationPage.passwordInput("testastestastestas");
 
-        registrationPage.birthDate("04/19/1996");
+        registrationPage.birthDateInput("04/19/1996");
 
-        registrationPage.checkBox();
+        registrationPage.clickCheckBox();
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
 
     }
     @Test
@@ -154,21 +155,21 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
-        registrationPage.firstName("Testas");
+        registrationPage.firstNameInput("Testas");
 
-        registrationPage.lastName("Testas");
+        registrationPage.lastNameInput("Testas");
 
-        registrationPage.email("Upper" + System.currentTimeMillis() + "@testas.com");
+        registrationPage.emailInput("Upper" + System.currentTimeMillis() + "@testas.com");
 
-        registrationPage.password("TESTASTESTASTESTAS");
+        registrationPage.passwordInput("TESTASTESTASTESTAS");
 
-        registrationPage.birthDate("04/19/1996");
+        registrationPage.birthDateInput("04/19/1996");
 
-        registrationPage.checkBox();
+        registrationPage.clickCheckBox();
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
 
         // Patikrinti sėkmingą registraciją
     }
@@ -184,7 +185,7 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 
@@ -197,23 +198,23 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
         // Error message visible / Invalid format
-        registrationPage.firstName("120~=]*");
+        registrationPage.firstNameInput("120~=]*");
 
         // Error message visible Invalid format
-        registrationPage.lastName("8899+-*");
+        registrationPage.lastNameInput("8899+-*");
 
-        registrationPage.email("Testas1@test.com");
+        registrationPage.emailInput("Testas1@test.com");
 
-        registrationPage.password("Testas123!");
+        registrationPage.passwordInput("Testas123!");
 
-        registrationPage.birthDate("04/19/1996");
+        registrationPage.birthDateInput("04/19/1996");
 
-        registrationPage.checkBox();
+        registrationPage.clickCheckBox();
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
     }
 
 
@@ -223,45 +224,45 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
-        registrationPage.firstName("Testas");
+        registrationPage.firstNameInput("Testas");
 
-        registrationPage.lastName("Testas");
+        registrationPage.lastNameInput("Testas");
 
-        registrationPage.email("Testas@Testas.com");
+        registrationPage.emailInput("Testas@Testas.com");
 
         // 101 letters, Error message visible / between 6-72 characters
-        registrationPage.password("TestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTesta");
+        registrationPage.passwordInput("TestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTesta");
 
-        registrationPage.birthDate("04/19/1996");
+        registrationPage.birthDateInput("04/19/1996");
 
-        registrationPage.checkBox();
+        registrationPage.clickCheckBox();
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
     }
 
     @Test
-    void SignUpShrotPassword(){
+    void SignUpShortPassword(){
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
-        registrationPage.firstName("Testas");
+        registrationPage.firstNameInput("Testas");
 
-        registrationPage.lastName("Testas");
+        registrationPage.lastNameInput("Testas");
 
-        registrationPage.email("Testas@testas.com");
+        registrationPage.emailInput("Testas@testas.com");
 
         // Error message visible between 6-72 characters
-        registrationPage.password("Tes12");
+        registrationPage.passwordInput("Tes12");
 
-        registrationPage.birthDate("04/19/1996");
+        registrationPage.birthDateInput("04/19/1996");
 
-        registrationPage.checkBox();
+        registrationPage.clickCheckBox();
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
     }
 
 
@@ -270,22 +271,22 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
-        registrationPage.firstName("Testas");
+        registrationPage.firstNameInput("Testas");
 
-        registrationPage.lastName("Testas");
+        registrationPage.lastNameInput("Testas");
 
-        registrationPage.email("TestasTesta@TestasT.com");
+        registrationPage.emailInput("TestasTesta@TestasT.com");
 
-        registrationPage.password("Testas123!");
+        registrationPage.passwordInput("Testas123!");
 
         // Error message visible
-        registrationPage.birthDate("1996/04/19");
+        registrationPage.birthDateInput("1996/04/19");
 
-        registrationPage.checkBox();
+        registrationPage.clickCheckBox();
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
 
     }
 
@@ -294,22 +295,22 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
-        registrationPage.firstName("Testas");
+        registrationPage.firstNameInput("Testas");
 
-        registrationPage.lastName("Testas");
+        registrationPage.lastNameInput("Testas");
 
         // Error message is visible
-        registrationPage.email("Testastest.com");
+        registrationPage.emailInput("Testastest.com");
 
-        registrationPage.password("Testas123!");
+        registrationPage.passwordInput("Testas123!");
 
-        registrationPage.birthDate("04/19/1996");
+        registrationPage.birthDateInput("04/19/1996");
 
-        registrationPage.checkBox();
+        registrationPage.clickCheckBox();
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
 
     }
     @Test
@@ -317,22 +318,22 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
-        registrationPage.firstName("Testas");
+        registrationPage.firstNameInput("Testas");
 
-        registrationPage.lastName("Testas");
+        registrationPage.lastNameInput("Testas");
 
         // Error message is visible
-        registrationPage.email("Testas@");
+        registrationPage.emailInput("Testas@");
 
-        registrationPage.password("Testas123!");
+        registrationPage.passwordInput("Testas123!");
 
-        registrationPage.birthDate("04/19/1996");
+        registrationPage.birthDateInput("04/19/1996");
 
-        registrationPage.checkBox();
+        registrationPage.clickCheckBox();
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
 
     }
     @Test
@@ -340,22 +341,45 @@ public class RegistrationTest extends BaseTest{
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        registrationPage.socialTitle();
+        registrationPage.clickSocialTitle();
 
-        registrationPage.firstName("Testas");
+        registrationPage.firstNameInput("Testas");
 
-        registrationPage.lastName("Testas");
+        registrationPage.lastNameInput("Testas");
 
         // Error message is visible
-        registrationPage.email("Testas@Testas.com");
+        registrationPage.emailInput("Testas@Testas.com");
 
-        registrationPage.password("Testas123!");
+        registrationPage.passwordInput("Testas123!");
 
-        registrationPage.birthDate("04/19/1996");
+        registrationPage.birthDateInput("04/19/1996");
 
-        registrationPage.checkBox();
+        registrationPage.clickCheckBox();
 
-        registrationPage.saveButton();
+        registrationPage.clickSaveButton();
 
+    }
+    @Test
+    @Tag("Negative")
+    @DisplayName("Registration fails without accepting terms and conditions")
+    void SignUpWithoutCheckbox(){
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+
+        registrationPage.clickSocialTitle();
+
+        registrationPage.firstNameInput("Testas");
+
+        registrationPage.lastNameInput("Testas");
+
+        registrationPage.emailInput("NoCheckbox" + System.currentTimeMillis() + "@test.com");
+
+        registrationPage.passwordInput("Testas123!");
+
+        registrationPage.birthDateInput("04/19/1996");
+
+        registrationPage.clickSaveButton();
+
+        assertTrue(registrationPage.hasCheckboxError(),
+                "Error message should appear");
     }
 }

@@ -26,16 +26,42 @@ public class ArtCategoryTest extends BaseTest{
 
         assertTrue(signUpPage.isLoggedIn());
 
-        ArtCategoryPage artCategoryPage = new ArtCategoryPage(driver);
+        BasePage basePage = new BasePage(driver);
 
-        artCategoryPage.navigateToArtCategory();
+        basePage.navigateToArtCategory();
+
     }
 
     @Test
     @DisplayName("Test sorting from A to Z")
     void nameAToZ(){
 
+        ArtCategoryPage artCategoryPage = new ArtCategoryPage(driver);
 
+        artCategoryPage.sortBy();
 
+        artCategoryPage.nameAToZ();
+    }
+
+    @Test
+    @DisplayName("Test sorting from Z to A")
+    void nameZToA(){
+
+        ArtCategoryPage artCategoryPage = new ArtCategoryPage(driver);
+
+        artCategoryPage.sortBy();
+
+        artCategoryPage.nameZToA();
+    }
+
+    @Test
+    @DisplayName("Test sorting from low price to high")
+    void priceLowToHigh(){
+
+        ArtCategoryPage artCategoryPage = new ArtCategoryPage(driver);
+
+        artCategoryPage.sortBy();
+
+        artCategoryPage.priceLowToHigh();
     }
 }
