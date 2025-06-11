@@ -16,35 +16,19 @@ public class SignUpPage extends BasePage{
     @FindBy(xpath = "//span[normalize-space()='Sign in']")
     private WebElement signInButton;
 
-    void signInButton(){
-        signInButton.click();
-    }
-
     @FindBy(xpath = "//a[normalize-space()='No account? Create one here']")
-    private WebElement createNewAccountButton;
-
-    void createNewAccountButton() {
-        createNewAccountButton.click();
-    }
-
-    @FindBy(xpath = "//input[@id='field-email']")
-    private WebElement email;
-
-    void email(String input){
-        email.sendKeys(input);
-    }
-
-    @FindBy(xpath = "//input[@id='field-password']")
-    private WebElement password;
-
-    void password(String input){
-        password.sendKeys(input);
-    }
+    private WebElement createNewAccount;
 
     @FindBy(xpath = "//button[@id='submit-login']")
     private WebElement signInLogin;
 
-    void signInLogin(){
+    void clickSignInButton(){
+        signInButton.click();
+    }
+    void clickCreateNewAccountButton() {
+        createNewAccount.click();
+    }
+    void clickSignInLogin(){
         signInLogin.click();
     }
 }

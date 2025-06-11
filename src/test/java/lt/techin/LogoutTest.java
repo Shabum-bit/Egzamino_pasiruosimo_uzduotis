@@ -17,13 +17,15 @@ public class LogoutTest extends BaseTest {
 
         SignUpPage signUpPage = new SignUpPage(driver);
 
-        signUpPage.signInButton();
+        signUpPage.clickSignInButton();
 
-        signUpPage.email("TestasTestas@test.com");
+        RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        signUpPage.password("Testas123789!");
+        registrationPage.emailInput("TestasTestas@test.com");
 
-        signUpPage.signInLogin();
+        registrationPage.passwordInput("Testas123789!");
+
+        signUpPage.clickSignInLogin();
 
         assertTrue(signUpPage.isLoggedIn());
 

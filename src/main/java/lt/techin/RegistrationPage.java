@@ -1,5 +1,6 @@
 package lt.techin;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -74,6 +75,45 @@ public class RegistrationPage extends BasePage{
             return false;
         }
     }
+    public boolean hasNameFormatError() {
+        try {
+            return driver.findElements(By.xpath("//*[contains(text(), 'Invalid format')]")).size() > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean hasEmailAlreadyUsedError() {
+        try {
+            return driver.findElements(By.xpath("//*[contains(text(), 'already used')]")).size() > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean hasEmailAtSymbolError() {
+        try {
+            String validationMessage = email.getAttribute("validationMessage");
+            return validationMessage != null && validationMessage.contains("@");
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean hasPasswordLengthError() {
+        try {
+            return driver.findElements(By.xpath("//*[contains(text(), 'between 6 and 72 characters')]")).size() > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean hasBirthDateFormatError() {
+        try {
+            return driver.findElements(By.xpath("//*[contains(text(), 'Format should be')]")).size() > 0;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+
     public boolean hasCheckboxError() {
         try {
             String validationMessage = checkBox.getAttribute("validationMessage");

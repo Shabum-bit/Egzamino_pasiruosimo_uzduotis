@@ -23,11 +23,11 @@ public class BaseTest {
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     }
- //   @AfterEach
- //   public void afterEach(){
- //       if(driver != null){
- //           driver.quit();
- //       }
- //   }
+//    @AfterEach
+//    public void afterEach(){
+//        if(driver != null){
+//            driver.quit();
+//        }
+//    }
 
 }

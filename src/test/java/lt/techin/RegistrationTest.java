@@ -22,9 +22,9 @@ public class RegistrationTest extends BaseTest{
 
         SignUpPage signUpPage = new SignUpPage(driver);
 
-        signUpPage.signInButton();
+        signUpPage.clickSignInButton();
 
-        signUpPage.createNewAccountButton();
+        signUpPage.clickCreateNewAccountButton();
 
     }
 
@@ -194,6 +194,8 @@ public class RegistrationTest extends BaseTest{
     }
 
     @Test
+    @Tag("Negative")
+    @DisplayName("Registration fails with special symbols in name and surname")
     void SignUpSpecialSymbolNameSurname(){
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -215,11 +217,16 @@ public class RegistrationTest extends BaseTest{
         registrationPage.clickCheckBox();
 
         registrationPage.clickSaveButton();
+
+        assertTrue(registrationPage.hasNameFormatError(),
+                "Should display 'Invalid format' error for special symbols");
     }
 
 
 
     @Test
+    @Tag("Negative")
+    @DisplayName("Registration fails with too long password")
     void SignUpLongPassword(){
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -230,7 +237,7 @@ public class RegistrationTest extends BaseTest{
 
         registrationPage.lastNameInput("Testas");
 
-        registrationPage.emailInput("Testas@Testas.com");
+        registrationPage.emailInput("Testas" + System.currentTimeMillis() + "@Testas.com");
 
         // 101 letters, Error message visible / between 6-72 characters
         registrationPage.passwordInput("TestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTestasTesta");
@@ -240,9 +247,14 @@ public class RegistrationTest extends BaseTest{
         registrationPage.clickCheckBox();
 
         registrationPage.clickSaveButton();
+
+        assertTrue(registrationPage.hasPasswordLengthError(),
+                "Should display error for password that is too long");
     }
 
     @Test
+    @Tag("Negative")
+    @DisplayName("Registration fails with too short password")
     void SignUpShortPassword(){
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -263,10 +275,15 @@ public class RegistrationTest extends BaseTest{
         registrationPage.clickCheckBox();
 
         registrationPage.clickSaveButton();
+
+        assertTrue(registrationPage.hasPasswordLengthError(),
+                "Should display error for password that is too short");
     }
 
 
     @Test
+    @Tag("Negative")
+    @DisplayName("Registration fails with wrong birth date format")
     void SignUpWrongBirthDate(){
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -288,9 +305,13 @@ public class RegistrationTest extends BaseTest{
 
         registrationPage.clickSaveButton();
 
+        assertTrue(registrationPage.hasBirthDateFormatError(),
+                "Should display error for incorrect date format");
     }
 
     @Test
+    @Tag("Negative")
+    @DisplayName("Registration fails with email without @ symbol")
     void SignUpEmailWithoutSpecialSymbol(){
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -312,8 +333,12 @@ public class RegistrationTest extends BaseTest{
 
         registrationPage.clickSaveButton();
 
+        assertTrue(registrationPage.hasEmailAtSymbolError(),
+                "Should display error for missing @ symbol");
     }
     @Test
+    @Tag("Negative")
+    @DisplayName("Registration fails with email without domain")
     void SignUpEmailWithoutDomain(){
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -335,8 +360,13 @@ public class RegistrationTest extends BaseTest{
 
         registrationPage.clickSaveButton();
 
+        assertTrue(registrationPage.hasEmailAtSymbolError(),
+                "Should display error for incomplete email");
+
     }
     @Test
+    @Tag("Negative")
+    @DisplayName("Registration fails with already existing email")
     void SignUpAlreadyExistingEmail(){
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
@@ -348,9 +378,9 @@ public class RegistrationTest extends BaseTest{
         registrationPage.lastNameInput("Testas");
 
         // Error message is visible
-        registrationPage.emailInput("Testas@Testas.com");
+        registrationPage.emailInput("TestasTestas@Testas.com");
 
-        registrationPage.passwordInput("Testas123!");
+        registrationPage.passwordInput("Testas123789!");
 
         registrationPage.birthDateInput("04/19/1996");
 
@@ -358,6 +388,8 @@ public class RegistrationTest extends BaseTest{
 
         registrationPage.clickSaveButton();
 
+        assertTrue(registrationPage.hasEmailAlreadyUsedError(),
+                "Should display error for already existing email");
     }
     @Test
     @Tag("Negative")
@@ -380,6 +412,6 @@ public class RegistrationTest extends BaseTest{
         registrationPage.clickSaveButton();
 
         assertTrue(registrationPage.hasCheckboxError(),
-                "Error message should appear");
+                "Should display error when terms and conditions are not accepted");
     }
 }

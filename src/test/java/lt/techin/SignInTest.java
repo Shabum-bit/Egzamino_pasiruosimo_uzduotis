@@ -18,13 +18,15 @@ public class SignInTest extends BaseTest{
 
         SignUpPage signUpPage = new SignUpPage(driver);
 
-        signUpPage.signInButton();
+        signUpPage.clickSignInButton();
 
-        signUpPage.email("TestasTestas@test.com");
+        RegistrationPage registrationPage = new RegistrationPage(driver);
 
-        signUpPage.password("Testas123789!");
+        registrationPage.emailInput("TestasTestas@test.com");
 
-        signUpPage.signInLogin();
+        registrationPage.passwordInput("Testas123789!");
+
+        signUpPage.clickSignInLogin();
 
         assertTrue(signUpPage.isLoggedIn());
 
@@ -38,9 +40,9 @@ public class SignInTest extends BaseTest{
         // Error message visible
         SignUpPage signUpPage = new SignUpPage(driver);
 
-        signUpPage.signInButton();
+        signUpPage.clickSignInButton();
 
-        signUpPage.signInLogin();
+        signUpPage.clickSignInLogin();
     }
     @Test
     @DisplayName("Negative sign in with incorrect email")
@@ -48,14 +50,15 @@ public class SignInTest extends BaseTest{
 
         SignUpPage signUpPage = new SignUpPage(driver);
 
-        signUpPage.signInButton();
+        signUpPage.clickSignInButton();
 
+        RegistrationPage registrationPage = new RegistrationPage(driver);
         // Error message visible / Invalid format
-        signUpPage.email("Testas@test");
+        registrationPage.emailInput("Testas@test");
 
-        signUpPage.password("Testas123!");
+        registrationPage.passwordInput("Testas123!");
 
-        signUpPage.signInLogin();
+        signUpPage.clickSignInLogin();
     }
         @Test
         @DisplayName("Negative sign in with all small email letters")
@@ -63,14 +66,15 @@ public class SignInTest extends BaseTest{
 
             SignUpPage signUpPage = new SignUpPage(driver);
 
-            signUpPage.signInButton();
+            signUpPage.clickSignInButton();
 
+            RegistrationPage registrationPage = new RegistrationPage(driver);
             // PASSED
-            signUpPage.email("testas@test.com");
+            registrationPage.emailInput("testas@test.com");
 
-            signUpPage.password("Testas123!");
+            registrationPage.passwordInput("Testas123!");
 
-            signUpPage.signInLogin();
+            signUpPage.clickSignInLogin();
 
     }
     @Test
@@ -79,14 +83,16 @@ public class SignInTest extends BaseTest{
 
         SignUpPage signUpPage = new SignUpPage(driver);
 
-        signUpPage.signInButton();
+        signUpPage.clickSignInButton();
 
-        signUpPage.email("Testas@test.com");
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+
+        registrationPage.emailInput("Testas@test.com");
 
         // Error message visible / authentication failed
-        signUpPage.password("Testas123!123");
+        registrationPage.passwordInput("Testas123!123");
 
-        signUpPage.signInLogin();
+        signUpPage.clickSignInLogin();
 
     }
 }
