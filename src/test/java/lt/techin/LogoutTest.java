@@ -12,26 +12,23 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LogoutTest extends BaseTest {
 
     @Test
+    @Tag("Positive")
     @DisplayName("Successful logout")
     void SuccessfulLogout(){
 
         SignUpPage signUpPage = new SignUpPage(driver);
-
         signUpPage.clickSignInButton();
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
-
         registrationPage.emailInput("TestasTestas@test.com");
-
         registrationPage.passwordInput("Testas123789!");
-
         signUpPage.clickSignInLogin();
 
-        assertTrue(signUpPage.isLoggedIn());
+        BasePage basePage = new BasePage(driver);
+        assertTrue(basePage.isLoggedIn());
 
         signUpPage.clickSignOut();
-
-        assertFalse(signUpPage.isLoggedIn());
+        assertFalse(basePage.isLoggedIn());
 
     }
 }

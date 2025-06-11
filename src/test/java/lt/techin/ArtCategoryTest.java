@@ -15,21 +15,16 @@ public class ArtCategoryTest extends BaseTest{
     void setUpLogIn(){
 
         SignUpPage signUpPage = new SignUpPage(driver);
-
         signUpPage.clickSignInButton();
 
         RegistrationPage registrationPage = new RegistrationPage(driver);
-
         registrationPage.emailInput("TestasTestas@test.com");
-
         registrationPage.passwordInput("Testas123789!");
-
         signUpPage.clickSignInLogin();
 
-        assertTrue(signUpPage.isLoggedIn());
 
         BasePage basePage = new BasePage(driver);
-
+        assertTrue(basePage.isLoggedIn());
         basePage.navigateToArtCategory();
 
     }
@@ -65,5 +60,15 @@ public class ArtCategoryTest extends BaseTest{
         artCategoryPage.sortBy();
 
         artCategoryPage.priceLowToHigh();
+    }
+    @Test
+    @DisplayName("Test sorting from high to low price")
+    void priceHighToLow(){
+
+        ArtCategoryPage artCategoryPage = new ArtCategoryPage(driver);
+
+        artCategoryPage.sortBy();
+
+        artCategoryPage.priceHighToLow();
     }
 }

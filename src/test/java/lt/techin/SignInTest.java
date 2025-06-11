@@ -30,7 +30,7 @@ public class SignInTest extends BaseTest{
         signUpPage.clickSignInLogin();
 
         assertTrue(signUpPage.isSignInSuccessful(),
-                "System should accept lowercase email addresses for sign in");
+                "Sign in should be successful with valid credentials");
     }
 
     @Test
@@ -93,6 +93,7 @@ public class SignInTest extends BaseTest{
     }
 
     @Test
+    @Tag("Negative")
     @DisplayName("Sign in with incorrect password")
     void SignInIncorrectPassword(){
 

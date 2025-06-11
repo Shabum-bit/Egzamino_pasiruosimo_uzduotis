@@ -17,9 +17,9 @@ public class SearchTest extends BaseTest {
     @DisplayName("Valid product search")
     void validProductSearch(){
 
-        SignUpPage signUpPage = new SignUpPage(driver);
+        BasePage basePage = new BasePage(driver);
 
-        signUpPage.searchProduct("Mug");
+        basePage.searchProduct("Mug");
 
         assertTrue(driver.getCurrentUrl().contains("search"));
     }
@@ -28,9 +28,9 @@ public class SearchTest extends BaseTest {
     @DisplayName("Insensitive search with big Letters")
     void caseInsensitiveSearchBig(){
 
-        SignUpPage signUpPage = new SignUpPage(driver);
+        BasePage basePage = new BasePage(driver);
 
-        signUpPage.searchProduct("MUG");
+        basePage.searchProduct("MUG");
 
         assertTrue(driver.getCurrentUrl().contains("search"));
     }
@@ -39,9 +39,9 @@ public class SearchTest extends BaseTest {
     @DisplayName("Insensitive search with small Letters")
     void caseInsensitiveSearchSmall(){
 
-        SignUpPage signUpPage = new SignUpPage(driver);
+        BasePage basePage = new BasePage(driver);
 
-        signUpPage.searchProduct("mug");
+        basePage.searchProduct("mug");
 
         assertTrue(driver.getCurrentUrl().contains("search"));
     }
@@ -52,9 +52,9 @@ public class SearchTest extends BaseTest {
     @DisplayName("Search with not existing input")
     void noResultsSearch(){
 
-        SignUpPage signUpPage = new SignUpPage(driver);
+        BasePage basePage = new BasePage(driver);
 
-        signUpPage.searchProduct("nonexistingproduct");
+        basePage.searchProduct("nonexistingproduct");
 
         SearchResultsPage resultsPage = new SearchResultsPage(driver);
 
@@ -65,9 +65,9 @@ public class SearchTest extends BaseTest {
     @DisplayName("Search with empty input")
     void emptySearch(){
 
-        SignUpPage signUpPage = new SignUpPage(driver);
+        BasePage basePage = new BasePage(driver);;
 
-        signUpPage.searchProduct("");
+        basePage.searchProduct("");
 
         SearchResultsPage resultsPage = new SearchResultsPage(driver);
 

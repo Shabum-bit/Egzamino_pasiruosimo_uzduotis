@@ -18,6 +18,7 @@ public class BasePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
     }
+
     @FindBy(xpath = "//a[@class='logout hidden-sm-down']")
     private WebElement signOut;
 
@@ -25,7 +26,7 @@ public class BasePage {
     private WebElement searchBox;
 
     @FindBy(xpath = "//a[normalize-space()='Art']")
-    private WebElement navigateToArtCategory;
+    private WebElement artCategory;
 
 
     void clickSignOut(){
@@ -46,6 +47,6 @@ public class BasePage {
         searchBox.sendKeys(Keys.ENTER);
     }
     void navigateToArtCategory(){
-        navigateToArtCategory.click();
+        artCategory.click();
     }
 }
