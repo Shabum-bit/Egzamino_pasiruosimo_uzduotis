@@ -13,7 +13,8 @@ public class SearchTest extends BaseTest {
     // POSITIVE
 
     @Test
-    @DisplayName("Positive valid product search")
+    @Tag("Positive")
+    @DisplayName("Valid product search")
     void validProductSearch(){
 
         SignUpPage signUpPage = new SignUpPage(driver);
@@ -23,7 +24,8 @@ public class SearchTest extends BaseTest {
         assertTrue(driver.getCurrentUrl().contains("search"));
     }
     @Test
-    @DisplayName("Positive Insensitive search with big Letters")
+    @Tag("Positive")
+    @DisplayName("Insensitive search with big Letters")
     void caseInsensitiveSearchBig(){
 
         SignUpPage signUpPage = new SignUpPage(driver);
@@ -33,7 +35,8 @@ public class SearchTest extends BaseTest {
         assertTrue(driver.getCurrentUrl().contains("search"));
     }
     @Test
-    @DisplayName("Positive Insensitive search with small Letters")
+    @Tag("Positive")
+    @DisplayName("Insensitive search with small Letters")
     void caseInsensitiveSearchSmall(){
 
         SignUpPage signUpPage = new SignUpPage(driver);
@@ -45,7 +48,8 @@ public class SearchTest extends BaseTest {
     //NEGATIVE
 
     @Test
-    @DisplayName("Negative search with not existing input")
+    @Tag("Negative")
+    @DisplayName("Search with not existing input")
     void noResultsSearch(){
 
         SignUpPage signUpPage = new SignUpPage(driver);
@@ -57,7 +61,8 @@ public class SearchTest extends BaseTest {
         assertTrue(resultsPage.getNoResultsText().equals("No matches were found for your search"));
     }
     @Test
-    @DisplayName("Negative search with empty input")
+    @Tag("Negative")
+    @DisplayName("Search with empty input")
     void emptySearch(){
 
         SignUpPage signUpPage = new SignUpPage(driver);

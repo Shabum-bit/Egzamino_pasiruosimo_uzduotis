@@ -29,7 +29,7 @@ public class LogoutTest extends BaseTest {
 
         assertTrue(signUpPage.isLoggedIn());
 
-        signUpPage.signOut();
+        signUpPage.clickSignOut();
 
         assertFalse(signUpPage.isLoggedIn());
 

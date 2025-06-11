@@ -32,6 +32,7 @@ public class RegistrationTest extends BaseTest{
 
     @Test
     @Tag("Positive")
+    @DisplayName("Successful registration with valid user data")
     void SignUpPositive(){
 
         RegistrationPage registrationPage = new RegistrationPage(driver);

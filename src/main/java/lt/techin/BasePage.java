@@ -21,7 +21,14 @@ public class BasePage {
     @FindBy(xpath = "//a[@class='logout hidden-sm-down']")
     private WebElement signOut;
 
-    void signOut(){
+    @FindBy (xpath = "//input[@placeholder='Search our catalog']")
+    private WebElement searchBox;
+
+    @FindBy(xpath = "//a[normalize-space()='Art']")
+    private WebElement navigateToArtCategory;
+
+
+    void clickSignOut(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(signOut));
         signOut.click();
@@ -33,18 +40,11 @@ public class BasePage {
             return false;
         }
     }
-    @FindBy (xpath = "//input[@placeholder='Search our catalog']")
-    private WebElement searchBox;
-
     void searchProduct(String input){
         searchBox.clear();
         searchBox.sendKeys(input);
         searchBox.sendKeys(Keys.ENTER);
-
     }
-    @FindBy(xpath = "//a[normalize-space()='Art']")
-    private WebElement navigateToArtCategory;
-
     void navigateToArtCategory(){
         navigateToArtCategory.click();
     }

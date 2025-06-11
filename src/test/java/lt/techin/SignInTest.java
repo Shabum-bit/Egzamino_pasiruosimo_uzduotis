@@ -7,12 +7,13 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("SignIn")
-@DisplayName("Testing if possible to log in with correct and incorrect inputs")
+@DisplayName("User should be successfully signed in with correct email and password")
 public class SignInTest extends BaseTest{
 
     // POSITIVE
 
     @Test
+    @Tag("Positive")
     @DisplayName("Positive sign in with correct input")
     void SignInPositive(){
 
@@ -28,13 +29,36 @@ public class SignInTest extends BaseTest{
 
         signUpPage.clickSignInLogin();
 
-        assertTrue(signUpPage.isLoggedIn());
+        assertTrue(signUpPage.isSignInSuccessful(),
+                "System should accept lowercase email addresses for sign in");
+    }
+
+    @Test
+    @Tag("Positive")
+    @DisplayName("Sign in with all lowercase email letters")
+    void SignInCaseSensitiveEmail(){
+
+        SignUpPage signUpPage = new SignUpPage(driver);
+
+        signUpPage.clickSignInButton();
+
+        RegistrationPage registrationPage = new RegistrationPage(driver);
+
+        registrationPage.emailInput("testastestas@test.com");
+
+        registrationPage.passwordInput("Testas123789!");
+
+        signUpPage.clickSignInLogin();
+
+        assertTrue(signUpPage.isSignInSuccessful(),
+                "Sign in should be successful with valid input");
 
     }
     // NEGATIVE
 
     @Test
-    @DisplayName("Negative sign in with empty fields")
+    @Tag("Negative")
+    @DisplayName("Sign in with empty fields")
     void SignInEmptyFields(){
 
         // Error message visible
@@ -43,9 +67,13 @@ public class SignInTest extends BaseTest{
         signUpPage.clickSignInButton();
 
         signUpPage.clickSignInLogin();
+
+        assertTrue(signUpPage.hasSignInErrorMessage(),
+                "Error message should appear when required fields are empty");
     }
     @Test
-    @DisplayName("Negative sign in with incorrect email")
+    @Tag("Negative")
+    @DisplayName("Sign in with incorrect email")
     void SignIncorrectEmail() {
 
         SignUpPage signUpPage = new SignUpPage(driver);
@@ -59,26 +87,13 @@ public class SignInTest extends BaseTest{
         registrationPage.passwordInput("Testas123!");
 
         signUpPage.clickSignInLogin();
+
+        assertTrue(signUpPage.hasEmailFormatError(),
+                "Error message should appear for invalid email format");
     }
-        @Test
-        @DisplayName("Negative sign in with all small email letters")
-        void SignInCaseSensitiveEmail(){
 
-            SignUpPage signUpPage = new SignUpPage(driver);
-
-            signUpPage.clickSignInButton();
-
-            RegistrationPage registrationPage = new RegistrationPage(driver);
-            // PASSED
-            registrationPage.emailInput("testas@test.com");
-
-            registrationPage.passwordInput("Testas123!");
-
-            signUpPage.clickSignInLogin();
-
-    }
     @Test
-    @DisplayName("Negative sign in with incorrect password")
+    @DisplayName("Sign in with incorrect password")
     void SignInIncorrectPassword(){
 
         SignUpPage signUpPage = new SignUpPage(driver);
@@ -93,6 +108,9 @@ public class SignInTest extends BaseTest{
         registrationPage.passwordInput("Testas123!123");
 
         signUpPage.clickSignInLogin();
+
+        assertTrue(signUpPage.hasAuthenticationError(),
+                "Error message should appear for incorrect password");
 
     }
 }
