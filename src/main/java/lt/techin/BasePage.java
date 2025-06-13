@@ -28,6 +28,9 @@ public class BasePage {
     @FindBy(xpath = "//a[normalize-space()='Art']")
     private WebElement artCategory;
 
+    @FindBy(xpath = "//li[@id='category-6']//a[@class='dropdown-item']")
+    private WebElement accessoriesCategory;
+
 
     public void clickSignOut(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -48,5 +51,8 @@ public class BasePage {
     }
     public void navigateToArtCategory(){
         artCategory.click();
+    }
+    public void navigateToAccessoriesCategory(){
+        accessoriesCategory.click();
     }
 }

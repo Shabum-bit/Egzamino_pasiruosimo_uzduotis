@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @Tag("Search")
-@DisplayName("Search field testing")
+@DisplayName("Search Functionality Tests")
 public class SearchTest extends BaseTest {
 
     // POSITIVE
