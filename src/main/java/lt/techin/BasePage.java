@@ -29,24 +29,24 @@ public class BasePage {
     private WebElement artCategory;
 
 
-    void clickSignOut(){
+    public void clickSignOut(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(signOut));
         signOut.click();
     }
-    boolean isLoggedIn(){
+    public boolean isLoggedIn(){
         try {
             return signOut.isDisplayed();
         } catch (NoSuchElementException e) {
             return false;
         }
     }
-    void searchProduct(String input){
+    public void searchProduct(String input){
         searchBox.clear();
         searchBox.sendKeys(input);
         searchBox.sendKeys(Keys.ENTER);
     }
-    void navigateToArtCategory(){
+    public void navigateToArtCategory(){
         artCategory.click();
     }
 }

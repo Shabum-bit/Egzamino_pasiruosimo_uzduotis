@@ -23,13 +23,13 @@ public class SignUpPage extends BasePage{
     @FindBy(xpath = "//button[@id='submit-login']")
     private WebElement signInLogin;
 
-    void clickSignInButton(){
+    public void clickSignInButton(){
         signInButton.click();
     }
-    void clickCreateNewAccountButton() {
+    public void clickCreateNewAccountButton() {
         createNewAccount.click();
     }
-    void clickSignInLogin(){
+    public void clickSignInLogin(){
         signInLogin.click();
     }
     public boolean isSignInSuccessful() {

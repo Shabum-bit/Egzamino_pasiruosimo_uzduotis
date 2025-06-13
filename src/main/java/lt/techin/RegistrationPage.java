@@ -35,39 +35,39 @@ public class RegistrationPage extends BasePage{
     private WebElement saveButton;
 
 
-    void clickSocialTitle(){
+    public void clickSocialTitle(){
         socialTitle.click();
     }
 
-    void firstNameInput(String input){
+    public void firstNameInput(String input){
         firstName.sendKeys(input);
     }
 
-    void lastNameInput(String input) {
+    public void lastNameInput(String input) {
         lastName.sendKeys(input);
     }
 
-    void emailInput(String input) {
+    public void emailInput(String input) {
         email.sendKeys(input);
     }
 
-    void passwordInput(String input){
+    public void passwordInput(String input){
         password.sendKeys(input);
     }
 
-    void birthDateInput(String input){
+    public void birthDateInput(String input){
         birthDate.sendKeys(input);
     }
 
-    void clickCheckBox(){
+    public void clickCheckBox(){
         checkBox.click();
     }
 
-    void clickSaveButton(){
+    public void clickSaveButton(){
         saveButton.click();
     }
 
-    boolean hasErrorMessage() {
+    public boolean hasErrorMessage() {
         try {
             String validationMessage = firstName.getAttribute("validationMessage");
             return validationMessage != null && !validationMessage.isEmpty();

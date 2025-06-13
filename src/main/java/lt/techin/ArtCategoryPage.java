@@ -24,19 +24,49 @@ public class ArtCategoryPage extends BasePage{
     @FindBy(xpath = "//a[normalize-space()='Price, high to low']")
     private WebElement priceHighToLow;
 
-    void sortBy(){
+    public void clickSortBy(){
         sortBy.click();
     }
-    void nameAToZ(){
+    public void clickNameAToZ(){
         nameAToZ.click();
     }
-    void  nameZToA(){
+    public void  clickNameZToA(){
         nameZToA.click();
     }
-    void priceLowToHigh(){
+    public void clickPriceLowToHigh(){
         priceLowToHigh.click();
     }
-    void priceHighToLow(){
+    public void clickPriceHighToLow(){
         priceHighToLow.click();
     }
+
+    public boolean isSortedByNameAZ() {
+        try {
+            return driver.getCurrentUrl().contains("order=product.name.asc");
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean isSortedByNameZA() {
+        try {
+            return driver.getCurrentUrl().contains("order=product.name.desc");
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean isSortedByPriceLowHigh() {
+        try {
+            return driver.getCurrentUrl().contains("order=product.price.asc");
+        } catch (Exception e) {
+            return false;
+        }
+    }
+    public boolean isSortedByPriceHighLow() {
+        try {
+            return driver.getCurrentUrl().contains("order=product.price.desc");
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
+

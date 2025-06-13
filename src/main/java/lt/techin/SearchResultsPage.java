@@ -14,7 +14,7 @@ public class SearchResultsPage extends BasePage{
     @FindBy(xpath = "//h4[@id='product-search-no-matches']")
     private WebElement noResultsMessage;
 
-    boolean hasNoResults(){
+    public boolean hasNoResults(){
         try {
             return noResultsMessage.isDisplayed();
         } catch (NoSuchElementException e) {

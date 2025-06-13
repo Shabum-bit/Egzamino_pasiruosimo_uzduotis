@@ -35,9 +35,9 @@ public class ArtCategoryTest extends BaseTest{
 
         ArtCategoryPage artCategoryPage = new ArtCategoryPage(driver);
 
-        artCategoryPage.sortBy();
+        artCategoryPage.clickSortBy();
 
-        artCategoryPage.nameAToZ();
+        artCategoryPage.clickNameAToZ();
     }
 
     @Test
@@ -46,9 +46,9 @@ public class ArtCategoryTest extends BaseTest{
 
         ArtCategoryPage artCategoryPage = new ArtCategoryPage(driver);
 
-        artCategoryPage.sortBy();
+        artCategoryPage.clickSortBy();
 
-        artCategoryPage.nameZToA();
+        artCategoryPage.clickNameZToA();
     }
 
     @Test
@@ -57,9 +57,9 @@ public class ArtCategoryTest extends BaseTest{
 
         ArtCategoryPage artCategoryPage = new ArtCategoryPage(driver);
 
-        artCategoryPage.sortBy();
+        artCategoryPage.clickSortBy();
 
-        artCategoryPage.priceLowToHigh();
+        artCategoryPage.clickPriceLowToHigh();
     }
     @Test
     @DisplayName("Test sorting from high to low price")
@@ -67,8 +67,8 @@ public class ArtCategoryTest extends BaseTest{
 
         ArtCategoryPage artCategoryPage = new ArtCategoryPage(driver);
 
-        artCategoryPage.sortBy();
+        artCategoryPage.clickSortBy();
 
-        artCategoryPage.priceHighToLow();
+        artCategoryPage.clickPriceHighToLow();
     }
 }
